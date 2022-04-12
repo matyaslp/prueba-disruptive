@@ -1,0 +1,20 @@
+<div>
+  <h3 class="my-4"> Proyeccion mensual y anual </h3>
+
+  <div class="w-full max-w-xs" data-controller="calculate" data-calculate-url-value="/calculate">
+    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" >
+      <label for="amount" class='block text-gray-700 text-sm font-bold mb-2'> Monto </label>
+
+      <input data-calculate-target="amount" type="number" class='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', required="true">
+  
+      <button data-action="click->calculate#calculate" class='bg-blue-500 hover:bg-green bg-blue text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer mt-2'>
+        Calcular
+      </button>
+      <button data-action="click->calculate#clear" class='bg-blue-500 hover:bg-red bg-gray text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer mt-2'>
+        Limpiar
+      </button>
+    </div>
+    <div data-calculate-target="output">
+    </div>
+  </div>
+</div>
