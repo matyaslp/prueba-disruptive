@@ -1,4 +1,4 @@
-<table class="border-separate border border-slate-400 bg-white">
+<table class="border-separate border border-slate-400 bg-white pb-4">
   <thead>
     <tr>
       <th class="border border-slate-300 px-2">Inversion</th>
@@ -7,25 +7,21 @@
     </tr>
   </thead>
   <tbody>
-      <tr>
+    <tr>
       <td class="border border-slate-300 px-2">BTC</td>
       <th class="border border-slate-300 px-2"></th>
       <td class="border border-slate-300 px-2">ETH</td>
     </tr>
-    <tr>
-      <td class="border border-slate-300 px-2">MES_1</td>
-      <th class="border border-slate-300 px-2"></th>
-      <td class="border border-slate-300 px-2">MES_1</td>
-    </tr>
-    <tr>
-      <td class="border border-slate-300 px-2">MES_2</td>
-      <th class="border border-slate-300 px-2"></th>
-      <td class="border border-slate-300 px-2">MES_2</td>
-    </tr>
-    <tr>
-      <td class="border border-slate-300 px-2">MES_3</td>
-      <th class="border border-slate-300 px-2"></th>
-      <td class="border border-slate-300 px-2">MES_3</td>
-    </tr>
+
+    <% for period in 1..12 do %>
+      <tr>
+        <td class="border border-slate-300 px-2"> <%= @btc.calculate(@amount, period, @btc_usd) %></td>
+        <th class="border border-slate-300 px-2"></th>
+        <td class="border border-slate-300 px-2"> <%= @eth.calculate(@amount, period, @eth_usd) %></td>
+      </tr>
+    <% end %>
+
   </tbody>
 </table>
+
+<%= link_to "Export csv", {controller: "home", action: "export", format: :csv, amount: @amount, btc_usd: @btc_usd, eth_usd: @eth_usd}, class: 'bg-blue hover:bg-green text-white font-bold py-2 px-4 rounded' %>

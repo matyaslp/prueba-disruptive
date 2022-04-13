@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ['statisticCards']
+  static targets = [ "btc", "eth" ]
   static values  = { url: String }
 
   connect() {
@@ -11,16 +11,17 @@ export default class extends Controller {
   interval(){
     let controller = this
     setInterval(function(){
-      controller.showSpin()
       controller.request()
-   }, 5000);
+   }, 10000);
   }
 
   request(){
+    let controller = this
     fetch(this.urlValue)
-    .then((response) => response.text())
-    .then((html) => {
-      this.statisticCardsTarget.innerHTML = html
+    .then((response) => response.json())
+    .then((json) => {
+      controller.btcTarget.innerHTML = '$' + json.btc;
+      controller.ethTarget.innerHTML = '$' + json.eth;
     });
   }
 }

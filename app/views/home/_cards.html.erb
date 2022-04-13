@@ -1,4 +1,4 @@
-<div class="flex mt-4">
+<div class="flex mt-4" data-controller="request" data-request-url-value="/refresh">
   <div class="flex w-1/2">
     <div class="bg-white rounded-3xl border shadow-xl p-8 w-2/3">
       <div class="flex justify-between items-center mb-4">
@@ -7,7 +7,7 @@
         </button>
         <div>
           <h3 class="font-semibold text-sm text-gray">USD</h3>
-          <h1 class="font-semibold text-xl text-gray">$ 59.000,00</h1>
+          <h1 class="font-semibold text-xl text-gray" data-request-target="btc"> <%= "$#{@btc_usd }" %> </h1>
         </div>
       </div>
     </div>
@@ -21,7 +21,7 @@
         </button>
         <div>
           <h3 class="font-semibold text-sm text-gray">USD</h3>
-          <h1 class="font-semibold text-xl text-gray">$ 4.462,00</h1>
+          <h1 class="font-semibold text-xl text-gray" data-request-target="eth"> <%= "$#{@eth_usd}" %> </h1>
         </div>
       </div>
     </div>

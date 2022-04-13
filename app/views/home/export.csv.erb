@@ -1,0 +1,6 @@
+<%- headers = ['Inversion', ' ', "#{@amount} USD"] -%>
+<%= CSV.generate_line headers -%>
+<%= CSV.generate_line(['BTC', ' ', 'ETH' ]) -%>
+<%- for period in 1..12 do -%>
+  <%= CSV.generate_line([@btc.calculate(@amount, period, @btc_usd), ' ', @eth.calculate(@amount, period, @eth_usd)]) -%>
+<%- end -%>
