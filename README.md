@@ -3,22 +3,40 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+### Pre-requisites 📋
 
-* Ruby version
+``` yml
+Ruby 2.7.2
+Rails ~ 6.1.5
+bundler 2.1.4
+yarn 1.22.5
+```
 
-* System dependencies
+### Installation 🔧
 
-* Configuration
+Change the `databse.yml` for your mysql username and password 
 
-* Database creation
 
-* Database initialization
+``` yml
+  username: your_username
+  password: your_password
+```
 
-* How to run the test suite
+Execute
+``` bash
+$ bundle install
+$ yarn install
+$ rails db:create db:migrate db:seed
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Usage
+- In a console we lift the application
+``` bash
+$ rails s
+```
 
-* Deployment instructions
-
-* ...
+- In another console we open the webpack console
+```
+$ bin/webpack-dev-server
+```
+---
